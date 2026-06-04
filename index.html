@@ -16,27 +16,27 @@
   <!-- НАВБАР -->
   <nav class="navbar">
     <div class="navbar-inner">
-      <a href="#home" class="navbar-logo">
+      <a href="index.html" class="navbar-logo">
         <div class="navbar-logo-icon"><img src="img/logo.png" alt="toi.kz"></div>
         <span class="navbar-logo-text">toi<span>.kz</span></span>
       </a>
-      <div class="navbar-links"><a href="#home" class="active">Главная</a><a href="#restaurants">Рестораны</a><a href="#services">Услуги</a><a href="#about">О нас</a></div>
+      <div class="navbar-links"><a href="index.html" class="active">Главная</a><a href="restaurants.html">Рестораны</a><a href="services.html">Услуги</a><a href="about.html">О нас</a></div>
       <div class="navbar-actions">
   <span class="navbar-lang">KZ / RU</span>
-  <a href="#login" class="btn-login" style="color:rgba(255,255,255,0.65);">Войти</a>
-  <a href="#register" class="btn-primary">Регистрация</a>
+  <a href="login.html" class="btn-login" style="color:rgba(255,255,255,0.65);">Войти</a>
+  <a href="register.html" class="btn-primary">Регистрация</a>
 </div>
 
       <button class="burger" aria-label="Меню"><span></span><span></span><span></span></button>
     </div>
   </nav>
   <div class="mobile-menu">
-    <a href="#home">Главная</a><a href="#restaurants">Рестораны</a><a href="#services">Услуги</a><a href="#about">О нас</a>
-    <a href="#register" class="btn-primary" style="text-align:center;margin-top:8px;">Забронировать</a>
+    <a href="index.html">Главная</a><a href="restaurants.html">Рестораны</a><a href="services.html">Услуги</a><a href="about.html">О нас</a>
+    <a href="booking.html" class="btn-primary" style="text-align:center;margin-top:8px;">Забронировать</a>
   </div>
 
   <!-- HERO СЕКЦИЯ -->
-  <section class="hero" id="home">
+  <section class="hero">
     <svg class="hero-pattern" xmlns="http://www.w3.org/2000/svg">
       <defs>
         <pattern id="kazakh-geo" x="0" y="0" width="80" height="80" patternUnits="userSpaceOnUse">
@@ -98,7 +98,7 @@
   </section>
 
   <!-- ТИПЫ МЕРОПРИЯТИЙ -->
-  <section class="section section-white" id="events">
+  <section class="section section-white">
     <div class="container">
       <div class="section-header animate-on-scroll">
         <div class="section-eyebrow"><div class="section-eyebrow-line"></div><span class="section-eyebrow-text">Мероприятия</span></div>
@@ -154,13 +154,13 @@
   </section>
 
   <!-- ПОПУЛЯРНЫЕ РЕСТОРАНЫ -->
-  <section class="section section-white" id="restaurants">
+  <section class="section section-white">
     <div class="container">
       <div class="section-header animate-on-scroll">
         <div class="section-eyebrow"><div class="section-eyebrow-line"></div><span class="section-eyebrow-text">Рестораны и тойханы</span></div>
         <div class="section-header-row">
           <h2 class="section-title">Выберите идеальное место</h2>
-          <a href="#restaurants" class="section-link">Все рестораны →</a>
+          <a href="restaurants.html" class="section-link">Все рестораны →</a>
         </div>
       </div>
       <div class="pills" id="home-pills">
@@ -176,13 +176,13 @@
   </section>
 
   <!-- УСЛУГИ -->
-  <section class="section section-light" id="services">
+  <section class="section section-light">
     <div class="container">
       <div class="section-header animate-on-scroll">
         <div class="section-eyebrow"><div class="section-eyebrow-line"></div><span class="section-eyebrow-text">Услуги</span></div>
         <div class="section-header-row">
           <h2 class="section-title">Всё для вашего тоя в одном месте</h2>
-          <a href="#services" class="section-link">Все услуги →</a>
+          <a href="services.html" class="section-link">Все услуги →</a>
         </div>
       </div>
       <div class="services-home-grid">
@@ -211,7 +211,7 @@
   </section>
 
   <!-- ОТЗЫВЫ -->
-  <section class="section section-dark" id="about">
+  <section class="section section-dark">
     <div class="container">
       <div class="testimonial-header-row">
         <div class="animate-on-scroll">
@@ -311,6 +311,7 @@
         grid.innerHTML = filtered.map(r => renderRestaurantCard(r)).join('');
         setTimeout(() => initScrollAnimations(), 100);
       }
+     <link rel="stylesheet" href="css/auth.css">
       renderHomeRestaurants('all');
       document.querySelectorAll('#home-pills .pill').forEach(pill => {
         pill.addEventListener('click', () => {
@@ -321,57 +322,6 @@
       });
     });
   </script>
-  <div class="modal-overlay auth-modal-overlay" id="auth-modal" aria-hidden="true">
-    <div class="modal auth-modal" role="dialog" aria-modal="true" aria-labelledby="auth-modal-title">
-      <button class="auth-modal-close" type="button" aria-label="Закрыть" onclick="closeAuthModal()">x</button>
-
-      <div class="auth-panel" id="login-panel">
-        <div class="auth-header">
-          <div class="auth-logo"><img src="img/logo.png" alt="toi.kz"></div>
-          <h2 class="auth-title" id="auth-modal-title">Войти</h2>
-          <p class="auth-subtitle">Введите email и пароль, чтобы продолжить</p>
-        </div>
-        <div class="auth-error" id="auth-error" style="display:none;"></div>
-        <form class="auth-form" onsubmit="handleLogin(event)">
-          <label class="form-label" for="login-email">Email</label>
-          <input class="form-input" id="login-email" type="email" autocomplete="email" placeholder="name@example.com" required>
-          <label class="form-label" for="login-password">Пароль</label>
-          <div class="password-field">
-            <input class="form-input" id="login-password" type="password" autocomplete="current-password" placeholder="Ваш пароль" required>
-            <button class="password-toggle" type="button" onclick="togglePassword('login-password', this)">Показать</button>
-          </div>
-          <button class="btn-primary auth-btn" id="login-btn" type="submit"><span id="login-btn-text">Войти</span><span id="login-btn-loading" style="display:none;">Входим...</span></button>
-        </form>
-        <div class="auth-footer"><p>Нет аккаунта? <a href="#register" onclick="openAuthModal('register')">Зарегистрироваться</a></p></div>
-      </div>
-
-      <div class="auth-panel" id="register-panel" style="display:none;">
-        <div class="auth-header">
-          <div class="auth-logo"><img src="img/logo.png" alt="toi.kz"></div>
-          <h2 class="auth-title">Регистрация</h2>
-          <p class="auth-subtitle">Создайте аккаунт для бронирования</p>
-        </div>
-        <div class="auth-error" style="display:none;"></div>
-        <form class="auth-form" onsubmit="handleRegister(event)">
-          <label class="form-label" for="reg-name">Имя</label>
-          <input class="form-input" id="reg-name" type="text" autocomplete="name" placeholder="Ваше имя" required>
-          <label class="form-label" for="reg-email">Email</label>
-          <input class="form-input" id="reg-email" type="email" autocomplete="email" placeholder="name@example.com" required>
-          <label class="form-label" for="reg-phone">Телефон</label>
-          <input class="form-input" id="reg-phone" type="tel" autocomplete="tel" placeholder="+7 777 000 00 00">
-          <label class="form-label" for="reg-password">Пароль</label>
-          <div class="password-field">
-            <input class="form-input" id="reg-password" type="password" autocomplete="new-password" placeholder="Минимум 6 символов" required>
-            <button class="password-toggle" type="button" onclick="togglePassword('reg-password', this)">Показать</button>
-          </div>
-          <label class="form-label" for="reg-password2">Повторите пароль</label>
-          <input class="form-input" id="reg-password2" type="password" autocomplete="new-password" placeholder="Повторите пароль" required>
-          <button class="btn-primary auth-btn" id="reg-btn" type="submit"><span id="reg-btn-text">Зарегистрироваться</span><span id="reg-btn-loading" style="display:none;">Создаём...</span></button>
-        </form>
-        <div class="auth-footer"><p>Уже есть аккаунт? <a href="#login" onclick="openAuthModal('login')">Войти</a></p></div>
-      </div>
-    </div>
-  </div>
 <script src="js/auth.js"></script>
 
 </body></html>
