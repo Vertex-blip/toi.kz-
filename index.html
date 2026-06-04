@@ -1,0 +1,327 @@
+<!DOCTYPE html><html lang="ru"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16.png">
+  <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/auth.css">
+  <title>toi.kz — Забронируйте ваш той онлайн</title>
+  <meta name="description" content="Платформа бронирования ресторанов для казахских мероприятий: той, свадьба, ұзату, сүндет той, беташар">
+</head>
+<body>
+
+  <!-- НАВБАР -->
+  <nav class="navbar">
+    <div class="navbar-inner">
+      <a href="index.html" class="navbar-logo">
+        <div class="navbar-logo-icon"><img src="img/logo.png" alt="toi.kz"></div>
+        <span class="navbar-logo-text">toi<span>.kz</span></span>
+      </a>
+      <div class="navbar-links"><a href="index.html" class="active">Главная</a><a href="restaurants.html">Рестораны</a><a href="services.html">Услуги</a><a href="about.html">О нас</a></div>
+      <div class="navbar-actions">
+  <span class="navbar-lang">KZ / RU</span>
+  <a href="login.html" class="btn-login" style="color:rgba(255,255,255,0.65);">Войти</a>
+  <a href="register.html" class="btn-primary">Регистрация</a>
+</div>
+
+      <button class="burger" aria-label="Меню"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+  <div class="mobile-menu">
+    <a href="index.html">Главная</a><a href="restaurants.html">Рестораны</a><a href="services.html">Услуги</a><a href="about.html">О нас</a>
+    <a href="booking.html" class="btn-primary" style="text-align:center;margin-top:8px;">Забронировать</a>
+  </div>
+
+  <!-- HERO СЕКЦИЯ -->
+  <section class="hero">
+    <svg class="hero-pattern" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <pattern id="kazakh-geo" x="0" y="0" width="80" height="80" patternUnits="userSpaceOnUse">
+          <polygon points="40,10 70,40 40,70 10,40" fill="none" stroke="#00AEEF" stroke-width="1"></polygon>
+          <polygon points="40,22 58,40 40,58 22,40" fill="none" stroke="#00AEEF" stroke-width="0.6"></polygon>
+          <circle cx="40" cy="10" r="2" fill="#00AEEF"></circle><circle cx="70" cy="40" r="2" fill="#00AEEF"></circle>
+          <circle cx="40" cy="70" r="2" fill="#00AEEF"></circle><circle cx="10" cy="40" r="2" fill="#00AEEF"></circle>
+          <line x1="40" y1="0" x2="40" y2="80" stroke="#00AEEF" stroke-width="0.4"></line>
+          <line x1="0" y1="40" x2="80" y2="40" stroke="#00AEEF" stroke-width="0.4"></line>
+          <line x1="0" y1="0" x2="80" y2="80" stroke="#00AEEF" stroke-width="0.3"></line>
+          <line x1="80" y1="0" x2="0" y2="80" stroke="#00AEEF" stroke-width="0.3"></line>
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#kazakh-geo)"></rect>
+    </svg>
+    <div class="hero-glow"></div>
+
+    <div class="hero-content">
+      <div class="hero-eyebrow animate-on-scroll">
+        <div class="hero-eyebrow-line"></div>
+        <span class="hero-eyebrow-text">Қазақстанның №1 той сервисі</span>
+        <div class="hero-eyebrow-line"></div>
+      </div>
+      <h1 class="hero-title animate-on-scroll">Брондаңыз тойыңызды</h1>
+      <h2 class="hero-subtitle animate-on-scroll">Забронируйте ваш той онлайн</h2>
+      <p class="hero-desc animate-on-scroll">Лучшие рестораны и тойханы Казахстана — для свадеб, ұзату, беташар и всех особенных мероприятий. Быстрый выбор, удобное бронирование, незабываемый праздник.</p>
+
+      <div class="hero-search animate-on-scroll">
+        <form class="hero-search-bar" onsubmit="handleHeroSearch(event)">
+          <div class="search-field">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            <select id="hero-city"><option value="">Выберите город</option><option value="Алматы">Алматы</option><option value="Астана">Астана</option></select>
+          </div>
+          <div class="search-divider"></div>
+          <div class="search-field">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"></path></svg>
+            <select id="hero-type"><option value="">Тип мероприятия</option><option value="Той">Той</option><option value="Свадьба">Свадьба</option><option value="Ұзату">Ұзату</option><option value="Сүндет той">Сүндет той</option><option value="Беташар">Беташар</option><option value="Юбилей">Юбилей</option></select>
+          </div>
+          <div class="search-divider"></div>
+          <div class="search-field">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="1" y="2" width="14" height="13" rx="2" stroke="currentColor" stroke-width="1.5"></rect><path d="M5 1v2M11 1v2M1 6h14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path></svg>
+            <input type="date" id="hero-date" style="color-scheme:dark;">
+          </div>
+          <button type="submit" class="search-btn">Найти</button>
+        </form>
+      </div>
+
+      <div class="hero-stats animate-on-scroll">
+        <div><div class="hero-stat-value">240+</div><div class="hero-stat-label">Ресторанов и тойхан</div></div>
+        <div><div class="hero-stat-value">12 000+</div><div class="hero-stat-label">Успешных броней</div></div>
+        <div><div class="hero-stat-value">14</div><div class="hero-stat-label">Городов Казахстана</div></div>
+      </div>
+    </div>
+
+    <div class="hero-scroll">
+      <span>Прокрутить</span>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+    </div>
+  </section>
+
+  <!-- ТИПЫ МЕРОПРИЯТИЙ -->
+  <section class="section section-white">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <div class="section-eyebrow"><div class="section-eyebrow-line"></div><span class="section-eyebrow-text">Мероприятия</span></div>
+        <h2 class="section-title">Какой той вы планируете?</h2>
+      </div>
+      <div class="event-types">
+        <a href="restaurants.html?type=Той" class="event-type-card animate-on-scroll"><div class="event-type-emoji">𝐓𝐎𝐈</div><div class="event-type-name">Той</div><div class="event-type-name-kz">Той</div></a>
+        <a href="restaurants.html?type=Свадьба" class="event-type-card animate-on-scroll"><div class="event-type-emoji">𝐖𝐄𝐃𝐃𝐈𝐍𝐆</div><div class="event-type-name">Свадьба</div><div class="event-type-name-kz">Үйлену тойы</div></a>
+        <a href="restaurants.html?type=Ұзату" class="event-type-card animate-on-scroll"><div class="event-type-emoji">𝐔𝐙𝐀𝐓𝐔</div><div class="event-type-name">Ұзату</div><div class="event-type-name-kz">Ұзату тойы</div></a>
+        <a href="restaurants.html?type=Сүндет+той" class="event-type-card animate-on-scroll"><div class="event-type-emoji">𝐒𝐔𝐍𝐃𝐄𝐓 𝐓𝐎𝐈</div><div class="event-type-name">Сүндет той</div><div class="event-type-name-kz">Сүндет той</div></a>
+        <a href="restaurants.html?type=Беташар" class="event-type-card animate-on-scroll"><div class="event-type-emoji">𝐁𝐄𝐓𝐀𝐒𝐇𝐀𝐑</div><div class="event-type-name">Беташар</div><div class="event-type-name-kz">Беташар</div></a>
+        <a href="restaurants.html?type=Юбилей" class="event-type-card animate-on-scroll"><div class="event-type-emoji">𝐉𝐔𝐁𝐈𝐋𝐄𝐄</div><div class="event-type-name">Юбилей</div><div class="event-type-name-kz">Мерейтой</div></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- КАК ЭТО РАБОТАЕТ -->
+  <section class="section section-light">
+    <div class="container">
+      <div class="section-header animate-on-scroll" style="margin-bottom:64px;">
+        <div class="section-eyebrow"><div class="section-eyebrow-line"></div><span class="section-eyebrow-text">Как это работает</span></div>
+        <h2 class="section-title">Забронировать — просто</h2>
+      </div>
+      <div class="steps-grid">
+        <div class="steps-connector"></div>
+        <div class="step animate-on-scroll">
+          <div class="step-icon-wrap">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="14" stroke="#00AEEF" stroke-width="1.5"></circle><path d="M10 16c0-3.31 2.69-6 6-6s6 2.69 6 6-2.69 6-6 6-6-2.69-6-6Z" stroke="#00AEEF" stroke-width="1.5"></path><circle cx="16" cy="16" r="2.5" fill="#00AEEF"></circle></svg>
+            <span class="step-number">1</span>
+          </div>
+          <div><div class="step-title-kz">Мейрамхананы таңдаңыз</div><h3 class="step-title">Выберите ресторан</h3><p class="step-desc">Просматривайте рестораны и тойханы по городу, вместимости и ценовой категории.</p></div>
+        </div>
+        <div class="step animate-on-scroll">
+          <div class="step-icon-wrap">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><rect x="4" y="6" width="24" height="22" rx="3" stroke="#00AEEF" stroke-width="1.5"></rect><path d="M4 12h24M10 4v4M22 4v4" stroke="#00AEEF" stroke-width="1.5" stroke-linecap="round"></path><circle cx="22" cy="22" r="4" fill="#0057A8"></circle><path d="M20 22l1.5 1.5L24 20" stroke="#00AEEF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            <span class="step-number">2</span>
+          </div>
+          <div><div class="step-title-kz">Іс-шара түрі мен опциялар</div><h3 class="step-title">Тип события и опции</h3><p class="step-desc">Укажите тип мероприятия — той, свадьба, ұзату. Выберите дату, гостей и услуги.</p></div>
+        </div>
+        <div class="step animate-on-scroll">
+          <div class="step-icon-wrap">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M16 4l3 9h9l-7.3 5.3 2.8 8.7L16 22l-7.5 5 2.8-8.7L4 13h9z" stroke="#00AEEF" stroke-width="1.5" stroke-linejoin="round"></path></svg>
+            <span class="step-number">3</span>
+          </div>
+          <div><div class="step-title-kz">Брондау және растау</div><h3 class="step-title">Бронь и подтверждение</h3><p class="step-desc">Оставьте заявку онлайн — ресторан свяжется с вами в течение 2 часов.</p></div>
+        </div>
+      </div>
+      <div class="cta-banner animate-on-scroll">
+        <div><div class="cta-banner-title">Готовы организовать незабываемый той?</div><div class="cta-banner-desc">Начните прямо сейчас — бесплатно и без обязательств</div></div>
+        <a href="restaurants.html" class="btn-primary">Найти ресторан →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ПОПУЛЯРНЫЕ РЕСТОРАНЫ -->
+  <section class="section section-white">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <div class="section-eyebrow"><div class="section-eyebrow-line"></div><span class="section-eyebrow-text">Рестораны и тойханы</span></div>
+        <div class="section-header-row">
+          <h2 class="section-title">Выберите идеальное место</h2>
+          <a href="restaurants.html" class="section-link">Все рестораны →</a>
+        </div>
+      </div>
+      <div class="pills" id="home-pills">
+        <button class="pill active" data-filter="all">Все</button>
+        <button class="pill" data-filter="Той">Той</button>
+        <button class="pill" data-filter="Свадьба">Свадьба</button>
+        <button class="pill" data-filter="Ұзату">Ұзату</button>
+        <button class="pill" data-filter="Сүндет той">Сүндет той</button>
+        <button class="pill" data-filter="Беташар">Беташар</button>
+      </div>
+      <div id="home-restaurants" class="restaurants-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;"></div>
+    </div>
+  </section>
+
+  <!-- УСЛУГИ -->
+  <section class="section section-light">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <div class="section-eyebrow"><div class="section-eyebrow-line"></div><span class="section-eyebrow-text">Услуги</span></div>
+        <div class="section-header-row">
+          <h2 class="section-title">Всё для вашего тоя в одном месте</h2>
+          <a href="services.html" class="section-link">Все услуги →</a>
+        </div>
+      </div>
+      <div class="services-home-grid">
+        <a href="services.html#tamada" class="service-home-card animate-on-scroll">
+          <div class="service-home-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></div>
+          <div class="service-home-name">Тамада</div><div class="service-home-desc">Профессиональные ведущие для вашего мероприятия</div>
+          <span class="btn-secondary" style="padding:8px 16px;font-size:0.8rem;">Выбрать →</span>
+        </a>
+        <a href="services.html#photo" class="service-home-card animate-on-scroll">
+          <div class="service-home-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg></div>
+          <div class="service-home-name">Фотограф</div><div class="service-home-desc">Сохраните лучшие моменты вашего праздника</div>
+          <span class="btn-secondary" style="padding:8px 16px;font-size:0.8rem;">Выбрать →</span>
+        </a>
+        <a href="services.html#decor" class="service-home-card animate-on-scroll">
+          <div class="service-home-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></div>
+          <div class="service-home-name">Декор</div><div class="service-home-desc">Оформление зала, арки, цветочные композиции</div>
+          <span class="btn-secondary" style="padding:8px 16px;font-size:0.8rem;">Выбрать →</span>
+        </a>
+        <a href="services.html#cakes" class="service-home-card animate-on-scroll">
+          <div class="service-home-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M2 20h20M4 20V10a2 2 0 012-2h12a2 2 0 012 2v10M8 8V6a4 4 0 018 0v2"></path></svg></div>
+          <div class="service-home-name">Торт</div><div class="service-home-desc">Авторские торты и десертные столы</div>
+          <span class="btn-secondary" style="padding:8px 16px;font-size:0.8rem;">Выбрать →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ОТЗЫВЫ -->
+  <section class="section section-dark">
+    <div class="container">
+      <div class="testimonial-header-row">
+        <div class="animate-on-scroll">
+          <div class="section-eyebrow"><div class="section-eyebrow-line" style="background:var(--blue-light)"></div><span class="section-eyebrow-text" style="color:var(--blue-light)">Отзывы</span></div>
+          <h2 class="section-title" style="color:var(--white)">Нам доверяют тысячи семей</h2>
+        </div>
+        <div class="testimonial-rating-summary animate-on-scroll">
+          <div class="testimonial-stars"><svg width="18" height="18" viewBox="0 0 24 24" fill="#00AEEF" stroke="#00AEEF" stroke-width="1"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"></polygon></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="#00AEEF" stroke="#00AEEF" stroke-width="1"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"></polygon></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="#00AEEF" stroke="#00AEEF" stroke-width="1"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"></polygon></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="#00AEEF" stroke="#00AEEF" stroke-width="1"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"></polygon></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="#00AEEF" stroke="#00AEEF" stroke-width="1"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"></polygon></svg>
+            </div>
+          <span class="testimonial-score">4.9</span>
+          <span class="testimonial-count">из 5 (1 240 отзывов)</span>
+        </div>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card animate-on-scroll">
+          <div class="testimonial-card-stars"><svg width="14" height="14" viewBox="0 0 24 24" fill="#00AEEF"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"></polygon></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#00AEEF"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"></polygon></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#00AEEF"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"></polygon></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#00AEEF"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"></polygon></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#00AEEF"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"></polygon></svg>
+            </div>
+          <p class="testimonial-text">"Нашли идеальный зал через toi.kz за 15 минут! Менеджер ресторана перезвонил сразу. Той прошёл на высшем уровне, гости в восторге."</p>
+          <div class="testimonial-author"><div class="testimonial-avatar" style="background:#0057A8">АС</div><div><div class="testimonial-name">Айгерим Сейткали</div><div class="testimonial-event">Свадьба, Алматы</div></div></div>
+        </div>
+        <div class="testimonial-card animate-on-scroll">
+          <div class="testimonial-card-stars"><svg width="14" height="14" viewBox="0 0 24 24" fill="#00AEEF"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"></polygon></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#00AEEF"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"></polygon></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#00AEEF"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"></polygon></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#00AEEF"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"></polygon></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#00AEEF"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"></polygon></svg>
+            </div>
+          <p class="testimonial-text">"Очень удобный сервис. Сравнили несколько ресторанов, выбрали лучший по соотношению цены и качества. Рекомендую всем!"</p>
+          <div class="testimonial-author"><div class="testimonial-avatar" style="background:#00AEEF">БН</div><div><div class="testimonial-name">Бауыржан Нұрланов</div><div class="testimonial-event">Той, Астана</div></div></div>
+        </div>
+        <div class="testimonial-card animate-on-scroll">
+          <div class="testimonial-card-stars"><svg width="14" height="14" viewBox="0 0 24 24" fill="#00AEEF"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"></polygon></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#00AEEF"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"></polygon></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#00AEEF"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"></polygon></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#00AEEF"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"></polygon></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#00AEEF"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"></polygon></svg>
+            </div>
+          <p class="testimonial-text">"Организовывали ұзату нашей дочери. Сервис помог найти именно то, что нужно — уютный зал с национальным колоритом."</p>
+          <div class="testimonial-author"><div class="testimonial-avatar" style="background:#0057A8">ЖА</div><div><div class="testimonial-name">Жұлдыз Ахметова</div><div class="testimonial-event">Ұзату, Алматы</div></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA БАННЕР -->
+  <section class="section section-white" style="padding:60px 0;">
+    <div class="container">
+      <div class="cta-banner cta-banner-blue animate-on-scroll" style="text-align:center;flex-direction:column;">
+        <div><div class="cta-banner-title" style="font-size:1.6rem;">Организуйте незабываемый той</div><div class="cta-banner-desc" style="max-width:500px;margin:8px auto 0;">Найдите идеальный ресторан, выберите услуги и забронируйте онлайн</div></div>
+        <a href="booking.html" class="btn-outline" style="margin-top:24px;padding:14px 32px;font-size:0.95rem;">Начать бронирование →</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-main">
+      <div class="footer-brand">
+        <div class="navbar-logo" style="margin-bottom:16px;">
+          <div class="navbar-logo-icon" style="width:32px;height:32px;"><img src="img/logo.png" alt="toi.kz"></div>
+          <span class="navbar-logo-text">toi<span>.kz</span></span>
+        </div>
+        <p>Онлайн-сервис бронирования ресторанов для казахских торжеств. Той, свадьба, ұзату — мы найдём идеальное место для вашего праздника.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="2" y="2" width="20" height="20" rx="5"></rect><circle cx="12" cy="12" r="4"></circle></svg></a>
+          <a href="#" aria-label="Telegram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z"></path></svg></a>
+          <a href="#" aria-label="YouTube"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="2" y="5" width="20" height="14" rx="3"></rect><polygon points="10,9 16,12 10,15" fill="currentColor" stroke="none"></polygon></svg></a>
+        </div>
+      </div>
+      <div class="footer-col"><div class="footer-col-title">Сервис</div><ul><li><a href="restaurants.html">Рестораны</a></li><li><a href="services.html">Услуги</a></li><li><a href="booking.html">Бронирование</a></li></ul></div>
+      <div class="footer-col"><div class="footer-col-title">Мероприятия</div><ul><li><a href="restaurants.html?type=Той">Той</a></li><li><a href="restaurants.html?type=Свадьба">Свадьба</a></li><li><a href="restaurants.html?type=Ұзату">Ұзату</a></li><li><a href="restaurants.html?type=Сүндет+той">Сүндет той</a></li><li><a href="restaurants.html?type=Беташар">Беташар</a></li></ul></div>
+      <div class="footer-col"><div class="footer-col-title">Компания</div><ul><li><a href="about.html">О нас</a></li><li><a href="#">Для ресторанов</a></li><li><a href="#">Контакты</a></li><li><a href="#">Вакансии</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-bottom-inner">
+        <span class="footer-copyright">© 2025 toi.kz — Все права защищены</span>
+        <div class="footer-legal"><a href="#">Политика конфиденциальности</a><a href="#">Условия использования</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const grid = document.getElementById('home-restaurants');
+      if (!grid) return;
+      function renderHomeRestaurants(filter) {
+        const filtered = filter === 'all' ? restaurants.slice(0, 6) : restaurants.filter(r => r.tags.includes(filter)).slice(0, 6);
+        grid.innerHTML = filtered.map(r => renderRestaurantCard(r)).join('');
+        setTimeout(() => initScrollAnimations(), 100);
+      }
+     <link rel="stylesheet" href="css/auth.css">
+      renderHomeRestaurants('all');
+      document.querySelectorAll('#home-pills .pill').forEach(pill => {
+        pill.addEventListener('click', () => {
+          document.querySelectorAll('#home-pills .pill').forEach(p => p.classList.remove('active'));
+          pill.classList.add('active');
+          renderHomeRestaurants(pill.dataset.filter);
+        });
+      });
+    });
+  </script>
+<script src="js/auth.js"></script>
+
+</body></html>
