@@ -1,0 +1,34 @@
+<!DOCTYPE html><html lang="ru"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/auth.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <title>Бронирование | toi.kz</title>
+</head><body>
+  <nav class="navbar"><div class="navbar-inner"><a href="index.html" class="navbar-logo"><div class="navbar-logo-icon"><img src="img/logo.png" alt="toi.kz"></div><span class="navbar-logo-text">toi<span>.kz</span></span></a><div class="navbar-links"><a href="index.html">Главная</a><a href="restaurants.html">Рестораны</a><a href="services.html">Услуги</a><a href="about.html">О нас</a></div><div class="navbar-actions"><span class="navbar-lang">KZ / RU</span><a href="login.html" class="btn-login" style="color:rgba(255,255,255,0.65);">Войти</a><a href="register.html" class="btn-primary">Регистрация</a></div><button class="burger" aria-label="Меню"><span></span><span></span><span></span></button></div></nav>
+  <main class="section section-light" style="padding-top:130px;">
+    <div class="container">
+      <div class="booking-card">
+        <h1 class="section-title" style="font-size:2rem;">Заявка на бронирование</h1>
+        <p style="color:rgba(13,13,13,0.62);margin-bottom:20px;">Рестораны подставляются из js/data.js.</p>
+        <div class="auth-success" id="booking-status" style="display:none;margin-bottom:16px;"></div>
+        <form id="booking-form" class="auth-form">
+          <label class="form-label" for="booking-restaurant" style="color:rgba(13,13,13,0.7)">Ресторан</label>
+          <select class="form-input" id="booking-restaurant"></select>
+          <label class="form-label" for="booking-name" style="color:rgba(13,13,13,0.7)">Имя</label>
+          <input class="form-input" id="booking-name" type="text" required>
+          <label class="form-label" for="booking-phone" style="color:rgba(13,13,13,0.7)">Телефон</label>
+          <input class="form-input" id="booking-phone" type="tel" required>
+          <label class="form-label" for="booking-date" style="color:rgba(13,13,13,0.7)">Дата</label>
+          <input class="form-input" id="booking-date" type="date" required>
+          <button class="btn-primary auth-btn" type="submit">Проверить заявку</button>
+        </form>
+      </div>
+    </div>
+  </main>
+  <script src="js/data.js"></script><script src="js/main.js"></script><script src="js/pages.js"></script><script src="js/auth.js"></script>
+</body></html>

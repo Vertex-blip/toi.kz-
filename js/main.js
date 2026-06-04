@@ -149,7 +149,7 @@ function renderRestaurantCard(r) {
   return `
     <div class="restaurant-card animate-on-scroll" onclick="window.location.href='restaurant-detail.html?id=${r.id}'">
       <div class="restaurant-card-image">
-        <img src="${r.images[0]}" alt="${r.name}" loading="lazy">
+        <img src="${r.images[0]}" alt="${r.name}" loading="lazy" onerror="this.src='img/hero-bg.jpg'">
         <div class="restaurant-card-overlay"></div>
         ${r.badge ? `<div class="restaurant-card-badge">${r.badge}</div>` : ''}
         <div class="restaurant-card-rating">
@@ -191,7 +191,7 @@ function renderServiceCard(s, category) {
   return `
     <div class="service-card animate-on-scroll">
       <div class="service-card-header">
-        <img class="service-card-avatar" src="${s.avatar}" alt="${s.name}" loading="lazy">
+        <img class="service-card-avatar" src="${s.avatar}" alt="${s.name}" loading="lazy" onerror="this.src='img/logo.png'">
         <div>
           <div class="service-card-name">${s.name}</div>
           <div class="service-card-sub">${s.specialist || ''} ${s.experience ? '• ' + s.experience + ' лет опыта' : ''}</div>

@@ -1,0 +1,44 @@
+<!DOCTYPE html><html lang="ru"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/auth.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <title>Рестораны | toi.kz</title>
+</head><body>
+  <nav class="navbar">
+    <div class="navbar-inner">
+      <a href="index.html" class="navbar-logo"><div class="navbar-logo-icon"><img src="img/logo.png" alt="toi.kz"></div><span class="navbar-logo-text">toi<span>.kz</span></span></a>
+      <div class="navbar-links"><a href="index.html">Главная</a><a href="restaurants.html" class="active">Рестораны</a><a href="services.html">Услуги</a><a href="about.html">О нас</a></div>
+      <div class="navbar-actions"><span class="navbar-lang">KZ / RU</span><a href="login.html" class="btn-login" style="color:rgba(255,255,255,0.65);">Войти</a><a href="register.html" class="btn-primary">Регистрация</a></div>
+      <button class="burger" aria-label="Меню"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+  <div class="mobile-menu"><a href="index.html">Главная</a><a href="restaurants.html">Рестораны</a><a href="services.html">Услуги</a><a href="about.html">О нас</a><a href="booking.html" class="btn-primary" style="text-align:center;margin-top:8px;">Забронировать</a></div>
+
+  <header class="page-hero">
+    <div class="page-hero-inner">
+      <div class="section-eyebrow"><div class="section-eyebrow-line" style="background:var(--blue-light)"></div><span class="section-eyebrow-text" style="color:var(--blue-light)">Рестораны и тойханы</span></div>
+      <h1 class="page-title">Выберите площадку для вашего тоя</h1>
+      <p class="page-lead">Список ресторанов берётся из файла js/data.js: города, цены, вместимость, теги, пакеты и отзывы.</p>
+    </div>
+  </header>
+
+  <main class="section section-white">
+    <div class="container">
+      <div class="page-toolbar">
+        <h2 class="section-title" style="font-size:2rem;">Все рестораны</h2>
+        <div class="page-filter" id="restaurant-filters"></div>
+      </div>
+      <div id="restaurants-list" class="page-grid"></div>
+    </div>
+  </main>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/pages.js"></script>
+  <script src="js/auth.js"></script>
+</body></html>

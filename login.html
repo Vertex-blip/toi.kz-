@@ -1,0 +1,32 @@
+<!DOCTYPE html><html lang="ru"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/auth.css">
+  <title>Войти | toi.kz</title>
+</head><body class="auth-page">
+  <div class="auth-container">
+    <div class="auth-card">
+      <div class="auth-header">
+        <a href="index.html" class="auth-logo"><img src="img/logo.png" alt="toi.kz"></a>
+        <h1 class="auth-title">Войти</h1>
+        <p class="auth-subtitle">Вход через API проекта: /api/auth/login</p>
+      </div>
+      <div class="auth-error" id="auth-error" style="display:none;"></div>
+      <form class="auth-form" onsubmit="handleLogin(); return false;">
+        <label class="form-label" for="login-email">Email</label>
+        <input class="form-input" id="login-email" type="email" autocomplete="email" required>
+        <label class="form-label" for="login-password">Пароль</label>
+        <div class="password-field">
+          <input class="form-input" id="login-password" type="password" autocomplete="current-password" required>
+          <button class="password-toggle" type="button" onclick="togglePassword('login-password', this)">Показать</button>
+        </div>
+        <button class="btn-primary auth-btn" id="login-btn" type="submit"><span id="login-btn-text">Войти</span><span id="login-btn-loading" style="display:none;">Загрузка...</span></button>
+      </form>
+      <div class="auth-footer"><p>Нет аккаунта? <a href="register.html">Регистрация</a></p></div>
+    </div>
+  </div>
+  <script src="js/auth.js"></script>
+</body></html>

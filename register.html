@@ -1,0 +1,38 @@
+<!DOCTYPE html><html lang="ru"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/auth.css">
+  <title>Регистрация | toi.kz</title>
+</head><body class="auth-page">
+  <div class="auth-container">
+    <div class="auth-card">
+      <div class="auth-header">
+        <a href="index.html" class="auth-logo"><img src="img/logo.png" alt="toi.kz"></a>
+        <h1 class="auth-title">Регистрация</h1>
+        <p class="auth-subtitle">Регистрация через API проекта: /api/auth/register</p>
+      </div>
+      <div class="auth-error" id="auth-error" style="display:none;"></div>
+      <form class="auth-form" onsubmit="handleRegister(); return false;">
+        <label class="form-label" for="reg-name">Имя</label>
+        <input class="form-input" id="reg-name" type="text" autocomplete="name" required>
+        <label class="form-label" for="reg-email">Email</label>
+        <input class="form-input" id="reg-email" type="email" autocomplete="email" required>
+        <label class="form-label" for="reg-phone">Телефон</label>
+        <input class="form-input" id="reg-phone" type="tel" autocomplete="tel">
+        <label class="form-label" for="reg-password">Пароль</label>
+        <div class="password-field">
+          <input class="form-input" id="reg-password" type="password" autocomplete="new-password" required>
+          <button class="password-toggle" type="button" onclick="togglePassword('reg-password', this)">Показать</button>
+        </div>
+        <label class="form-label" for="reg-password2">Повторите пароль</label>
+        <input class="form-input" id="reg-password2" type="password" autocomplete="new-password" required>
+        <button class="btn-primary auth-btn" id="reg-btn" type="submit"><span id="reg-btn-text">Зарегистрироваться</span><span id="reg-btn-loading" style="display:none;">Загрузка...</span></button>
+      </form>
+      <div class="auth-footer"><p>Уже есть аккаунт? <a href="login.html">Войти</a></p></div>
+    </div>
+  </div>
+  <script src="js/auth.js"></script>
+</body></html>

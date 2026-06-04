@@ -311,7 +311,6 @@
         grid.innerHTML = filtered.map(r => renderRestaurantCard(r)).join('');
         setTimeout(() => initScrollAnimations(), 100);
       }
-     <link rel="stylesheet" href="css/auth.css">
       renderHomeRestaurants('all');
       document.querySelectorAll('#home-pills .pill').forEach(pill => {
         pill.addEventListener('click', () => {
