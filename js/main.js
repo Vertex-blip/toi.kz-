@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initBurger();
   initScrollAnimations();
   initActiveNav();
+  initSinglePageLinks();
 });
 
 /* === Навбар: тень при скролле === */
@@ -68,13 +69,75 @@ function initScrollAnimations() {
 
 /* === Активный пункт навигации === */
 function initActiveNav() {
-  const currentPage = window.location.pathname.split('/').pop() || 'index.html';
   const navLinks = document.querySelectorAll('.navbar-links a, .mobile-menu a');
 
   navLinks.forEach(link => {
+    link.classList.toggle('active', link.getAttribute('href') === '#home');
+  });
+}
+
+function scrollToSection(hash) {
+  const target = document.querySelector(hash);
+  if (!target) return;
+  target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function initSinglePageLinks() {
+  const routeMap = {
+    'index.html': '#home',
+    'restaurants.html': '#restaurants',
+    'restaurant-detail.html': '#restaurants',
+    'services.html': '#services',
+    'about.html': '#about',
+    'booking.html': '#register',
+    'login.html': '#login',
+    'register.html': '#register',
+    'profile.html': '#login',
+    'my-bookings.html': '#login',
+    'admin.html': '#login',
+  };
+
+  document.addEventListener('click', (event) => {
+    const link = event.target.closest('a[href]');
+    if (!link) return;
+
     const href = link.getAttribute('href');
-    if (href === currentPage || (currentPage === '' && href === 'index.html')) {
-      link.classList.add('active');
+    if (!href || href === '#') return;
+
+    if (href.startsWith('#')) {
+      const action = href.slice(1);
+      if (action === 'login' || action === 'register') {
+        event.preventDefault();
+        if (typeof openAuthModal === 'function') openAuthModal(action);
+        return;
+      }
+
+      const target = document.querySelector(href);
+      if (target) {
+        event.preventDefault();
+        scrollToSection(href);
+      }
+      return;
+    }
+
+    let url;
+    try {
+      url = new URL(href, window.location.href);
+    } catch {
+      return;
+    }
+
+    if (url.origin !== window.location.origin) return;
+
+    const page = url.pathname.split('/').pop();
+    const targetHash = routeMap[page];
+    if (!targetHash) return;
+
+    event.preventDefault();
+    if (targetHash === '#login' || targetHash === '#register') {
+      if (typeof openAuthModal === 'function') openAuthModal(targetHash.slice(1));
+    } else {
+      scrollToSection(targetHash);
     }
   });
 }
@@ -94,7 +157,7 @@ function handleHeroSearch(event) {
   if (date) params.set('date', date);
   if (guests) params.set('guests', guests);
 
-  window.location.href = 'restaurants.html' + (params.toString() ? '?' + params.toString() : '');
+  scrollToSection('#restaurants');
 }
 
 /* === Утилита: форматирование цены === */
@@ -147,7 +210,7 @@ const icons = {
 /* === Рендер карточки ресторана === */
 function renderRestaurantCard(r) {
   return `
-    <div class="restaurant-card animate-on-scroll" onclick="window.location.href='restaurant-detail.html?id=${r.id}'">
+    <div class="restaurant-card animate-on-scroll" onclick="scrollToSection('#restaurants')">
       <div class="restaurant-card-image">
         <img src="${r.images[0]}" alt="${r.name}" loading="lazy">
         <div class="restaurant-card-overlay"></div>

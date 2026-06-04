@@ -237,3 +237,46 @@
     font-size: 1.3rem;
   }
 }
+
+.auth-modal-overlay {
+  z-index: 3000;
+}
+
+.auth-modal {
+  position: relative;
+  max-width: 460px;
+  max-height: calc(100vh - 32px);
+  overflow-y: auto;
+  text-align: left;
+  background: rgba(13,13,13,0.98);
+  border: 1px solid rgba(255,255,255,0.1);
+  box-shadow: 0 24px 80px rgba(0,0,0,0.35);
+  padding: 32px;
+}
+
+.auth-modal-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.06);
+  color: rgba(255,255,255,0.7);
+  cursor: pointer;
+}
+
+.auth-modal-close:hover {
+  color: var(--white);
+  background: rgba(255,255,255,0.1);
+}
+
+.auth-panel .form-label {
+  display: block;
+  margin: 14px 0 6px;
+}
+
+.auth-panel .auth-footer a {
+  cursor: pointer;
+}
